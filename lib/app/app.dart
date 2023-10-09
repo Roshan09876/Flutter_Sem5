@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:secondapp/view/dashboard_view.dart';
+import 'package:secondapp/app/routes/app_route.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,7 +9,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Course',
-      home: DashboardView(),
+      initialRoute: AppRoute.dashboardRoute,
+      routes: AppRoute.getApplicationRoute(),
     );
   }
 }
