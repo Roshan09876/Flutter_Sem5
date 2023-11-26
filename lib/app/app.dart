@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:secondapp/app/routes/app_route.dart';
 
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -9,7 +10,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Course',
-      initialRoute: AppRoute.dashboardRoute,
+      initialRoute: AppRoute.rowscolumnRoute,
       routes: AppRoute.getApplicationRoute(),
     );
   }

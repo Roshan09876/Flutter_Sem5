@@ -81,6 +81,23 @@ class DashboardView extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(minimumSize: Size(0, 80)),
+                onPressed: () {
+                  //Named Route
+                  Navigator.pushNamed(context, AppRoute.student_listview);
+                },
+                child: const Text(
+                  'Student ListView',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ],
         ),
       )),
