@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:secondapp/app/routes/app_route.dart';
 import 'package:secondapp/model/student.dart';
-import 'package:secondapp/view/displaystudent.dart';
-
 
 class Student_ListView extends StatefulWidget {
   const Student_ListView({super.key});
@@ -12,13 +10,11 @@ class Student_ListView extends StatefulWidget {
 }
 
 class _Student_ListViewState extends State<Student_ListView> {
-
-  void _deleteStudent(int index) {
-  setState(() {
-    lstStudents.removeAt(index);
-  });
-}
-
+//   void _deleteStudent(int index) {
+//   setState(() {
+//     lstStudents.removeAt(index);
+//   });
+// }
 
   final _formkey = GlobalKey<FormState>();
   final fnameController = TextEditingController();
@@ -122,44 +118,76 @@ class _Student_ListViewState extends State<Student_ListView> {
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: () {
-                      Navigator.pushNamed(context, AppRoute.displaystudentRoute, arguments: lstStudents);
+                      Navigator.pushNamed(context, AppRoute.displaystudentRoute,
+                          arguments: lstStudents);
                     },
                     child: Text(
                       'View Students',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.white),
                     ))),
-                    SizedBox(height: 10,),
-                    Expanded(
-                      child: lstStudents.isNotEmpty ? ListView.builder(
-                        itemCount: lstStudents.length,
-                        itemBuilder: (context, index){
-                          return ListTile(
-                            leading: const Icon(Icons.person),
-                            title: Text('${lstStudents[index].fname} ${lstStudents[index].lname}'),
-                            subtitle: Text(lstStudents[index].city),
-                            trailing: Wrap(
-                              spacing: 1,
-                              children: [
-                                IconButton(
-                                onPressed: (){},
-                                icon: const Icon(Icons.edit)),
-                                IconButton(
-                                onPressed: (){
-                                  _deleteStudent(index);
-                                },
-                                icon: const Icon(Icons.delete)),
-                              ],
-                            ),
-                            onTap: (){},
-                          );
-                        }
-                        )
-                        : const Text('No Data'),
-                    )
+            SizedBox(
+              height: 10,
+            ),
+            MyWidget(lstStudents: lstStudents)
           ]),
         ),
       ),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({
+    super.key,
+    required this.lstStudents,
+  });
+
+  final List<Student> lstStudents;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: lstStudents.isNotEmpty
+          ? ListView.builder(
+              itemCount: lstStudents.length,
+              itemBuilder: (context, index) {
+                return SizedBox(
+                  height: 80,
+                  child: Card(
+                    color: Colors.amber,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Container(
+                        child: Text(
+                            '${lstStudents[index].fname} ${lstStudents[index].lname}'),
+                      ),
+                    ),
+                  ),
+                );
+                // return ListTile(
+                //   leading: const Icon(Icons.person),
+                //   title: Text('${lstStudents[index].fname} ${lstStudents[index].lname}'),
+                //   subtitle: Text(lstStudents[index].city),
+                //   trailing: Wrap(
+                //     spacing: 1,
+                //     children: [
+                //       IconButton(
+                //       onPressed: (){},
+                //       icon: const Icon(Icons.edit)),
+                //       IconButton(
+                //       onPressed: (){
+                //         // _deleteStudent(index);
+                //       },
+                //       icon: const Icon(Icons.delete)),
+                //     ],
+                //   ),
+                //   onTap: (){},
+                // );
+              })
+          : const Text('No Data'),
     );
   }
 }
