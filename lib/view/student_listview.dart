@@ -154,19 +154,52 @@ class MyWidget extends StatelessWidget {
               itemBuilder: (context, index) {
                 return SizedBox(
                   height: 80,
-                  child: Card(
-                    color: Colors.amber,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Container(
-                        child: Text(
-                            '${lstStudents[index].fname} ${lstStudents[index].lname}'),
+                  child: GestureDetector(
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colors.red,
+                          behavior: SnackBarBehavior.floating,
+                          duration: Duration(seconds: 1),
+                          content: Text(
+                            '${lstStudents[index].fname} ${lstStudents[index].lname} is Clicked',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )));
+                    },
+                    onDoubleTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colors.green,
+                          behavior: SnackBarBehavior.floating,
+                          duration: Duration(seconds: 1),
+                          content: Text(
+                            '${lstStudents[index].fname} ${lstStudents[index].lname} is Clicked',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )));
+                    },
+                    onLongPress: (){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colors.blue,
+                          behavior: SnackBarBehavior.floating,
+                          duration: Duration(seconds: 1),
+                          content: Text(
+                            '${lstStudents[index].fname} ${lstStudents[index].lname} is Clicked',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )));
+                    },
+                    child: Card(
+                      color: Colors.amber,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Column(children: [
+                          Text(
+                              '${lstStudents[index].fname} ${lstStudents[index].lname}'),
+                          Text(lstStudents[index].city),
+                        ]),
                       ),
                     ),
                   ),
                 );
+
                 // return ListTile(
                 //   leading: const Icon(Icons.person),
                 //   title: Text('${lstStudents[index].fname} ${lstStudents[index].lname}'),

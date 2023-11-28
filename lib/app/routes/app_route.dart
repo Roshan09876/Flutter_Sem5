@@ -3,6 +3,7 @@ import 'package:secondapp/view/container_view.dart';
 import 'package:secondapp/view/dashboard_view.dart';
 import 'package:secondapp/view/displaystudent.dart';
 import 'package:secondapp/view/expanded_flexible_view.dart';
+import 'package:secondapp/view/gridv_viewview.dart';
 import 'package:secondapp/view/rows_column.dart';
 import 'package:secondapp/view/student_listview.dart';
 import 'package:secondapp/view/image_view.dart';
@@ -25,6 +26,7 @@ class AppRoute {
   static const String expandedflexibleRoute = '/expandedflexibleRoute';
   static const String rowscolumnRoute = '/rowscolumnRoute';
   static const String fluttertasterRoute = '/fluttertasterRoute';
+  static const String girdviewviewRoute = '/girdviewviewRoute';
 
   static getApplicationRoute() {
     return {
@@ -39,6 +41,7 @@ class AppRoute {
       expandedflexibleRoute: (context) => const ExpanedFlexible(),
       rowscolumnRoute: (context) => const RowsColumn(),
       fluttertasterRoute: (context) => const FlutterToaster(),
+      girdviewviewRoute: (context) => const GridViewView(),
     };
   }
 }
