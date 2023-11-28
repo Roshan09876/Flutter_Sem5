@@ -8,6 +8,7 @@ import 'package:secondapp/view/student_listview.dart';
 import 'package:secondapp/view/image_view.dart';
 import 'package:secondapp/view/output_view.dart';
 import 'package:secondapp/view/random_view.dart';
+import 'package:secondapp/view/tlutter_toaster.dart';
 
 class AppRoute {
   //private Constructor
@@ -23,6 +24,7 @@ class AppRoute {
   static const String displaystudentRoute = '/displaystudentRoute';
   static const String expandedflexibleRoute = '/expandedflexibleRoute';
   static const String rowscolumnRoute = '/rowscolumnRoute';
+  static const String fluttertasterRoute = '/fluttertasterRoute';
 
   static getApplicationRoute() {
     return {
@@ -35,7 +37,8 @@ class AppRoute {
       student_listview: (context) => const Student_ListView(),
       displaystudentRoute: (context) => const DisplayStudents(),
       expandedflexibleRoute: (context) => const ExpanedFlexible(),
-      rowscolumnRoute: (context) => const RowsColumn()
+      rowscolumnRoute: (context) => const RowsColumn(),
+      fluttertasterRoute: (context) => const FlutterToaster(),
     };
   }
 }

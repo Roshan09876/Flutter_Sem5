@@ -10,7 +10,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Course',
-      initialRoute: AppRoute.rowscolumnRoute,
+      initialRoute: AppRoute.fluttertasterRoute,
       routes: AppRoute.getApplicationRoute(),
     );
   }
