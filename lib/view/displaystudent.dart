@@ -29,31 +29,40 @@ class _DisplayStudentsState extends State<DisplayStudents> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Student Details')),
-      body: lstStudents.isNotEmpty
-          ? ListView.builder(
-              itemCount: lstStudents.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: const Icon(Icons.person),
-                  title: Text(
-                      '${lstStudents[index].fname} ${lstStudents[index].lname}'),
-                  subtitle: Text(lstStudents[index].city),
-                  trailing: Wrap(
-                    spacing: 1,
-                    children: [
-                      IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.edit)),
-                      IconButton(
-                          onPressed: () {
-                            _deleteStudent(index);
-                          },
-                          icon: const Icon(Icons.delete)),
-                    ],
-                  ),
-                  onTap: () {},
-                );
-              })
-          : const Text('No Data'),
+      body: lstStudents.isEmpty ? const Center(child: Text('No Data Found'),
+      ) : ListView.separated(
+        separatorBuilder: (context, index) => const Divider(),
+         itemCount: lstStudents.length,
+         itemBuilder: (context, index){
+
+         }, 
+         )
     );
   }
 }
+
+// lstStudents.isNotEmpty
+//           ? ListView.builder(
+//               itemCount: lstStudents.length,
+//               itemBuilder: (context, index) {
+//                 return ListTile(
+//                   leading: const Icon(Icons.person),
+//                   title: Text(
+//                       '${lstStudents[index].fname} ${lstStudents[index].lname}'),
+//                   subtitle: Text(lstStudents[index].city),
+//                   trailing: Wrap(
+//                     spacing: 1,
+//                     children: [
+//                       IconButton(
+//                           onPressed: () {}, icon: const Icon(Icons.edit)),
+//                       IconButton(
+//                           onPressed: () {
+//                             _deleteStudent(index);
+//                           },
+//                           icon: const Icon(Icons.delete)),
+//                     ],
+//                   ),
+//                   onTap: () {},
+//                 );
+//               })
+//           : const Text('No Data'),
