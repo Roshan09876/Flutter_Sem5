@@ -5,6 +5,7 @@ import 'package:secondapp/view/displaystudent.dart';
 import 'package:secondapp/view/expanded_flexible_view.dart';
 import 'package:secondapp/view/gridv_viewview.dart';
 import 'package:secondapp/view/rows_column.dart';
+import 'package:secondapp/view/stack_view.dart';
 import 'package:secondapp/view/student_listview.dart';
 import 'package:secondapp/view/image_view.dart';
 import 'package:secondapp/view/output_view.dart';
@@ -27,6 +28,7 @@ class AppRoute {
   static const String rowscolumnRoute = '/rowscolumnRoute';
   static const String fluttertasterRoute = '/fluttertasterRoute';
   static const String girdviewviewRoute = '/girdviewviewRoute';
+  static const String satckviewRoute = '/satckviewRoute';
 
   static getApplicationRoute() {
     return {
@@ -42,6 +44,7 @@ class AppRoute {
       rowscolumnRoute: (context) => const RowsColumn(),
       fluttertasterRoute: (context) => const FlutterToaster(),
       girdviewviewRoute: (context) => const GridViewView(),
+      satckviewRoute: (context) => const StackView(),
     };
   }
 }

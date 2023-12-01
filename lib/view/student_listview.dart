@@ -185,7 +185,9 @@ class MyWidget extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           )));
                     },
-                    child: Card(
+                    child: Stack(children: [
+                      Container(color: Colors.black,),
+                      Card(
                       color: Colors.amber,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
@@ -197,28 +199,9 @@ class MyWidget extends StatelessWidget {
                         ]),
                       ),
                     ),
+                    ],)
                   ),
                 );
-
-                // return ListTile(
-                //   leading: const Icon(Icons.person),
-                //   title: Text('${lstStudents[index].fname} ${lstStudents[index].lname}'),
-                //   subtitle: Text(lstStudents[index].city),
-                //   trailing: Wrap(
-                //     spacing: 1,
-                //     children: [
-                //       IconButton(
-                //       onPressed: (){},
-                //       icon: const Icon(Icons.edit)),
-                //       IconButton(
-                //       onPressed: (){
-                //         // _deleteStudent(index);
-                //       },
-                //       icon: const Icon(Icons.delete)),
-                //     ],
-                //   ),
-                //   onTap: (){},
-                // );
               })
           : const Text('No Data'),
     );
