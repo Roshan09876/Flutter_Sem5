@@ -5,12 +5,6 @@ class ExampleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Text(
-        'ExampleView Page',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      )),
-    );
+    return Center(child: Text('Example Page'),);
   }
 }

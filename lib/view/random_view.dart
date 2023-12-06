@@ -36,54 +36,57 @@ class _RandomNumberGeneratorState extends State<RandomNumberGenerator> {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: (clickCount < 10)
-                      ? () {
-                          setState(() {
-                            //For generating random number using Random().nextInt()
-                            randomNumber1 = Random().nextInt(100);
-                            // Increment the click count
-                            clickCount++;
-                            rand(); // Calculate and display the result
-                          });
-                        }
-                      : null,
-                  child: Text(
-                    'First num is $randomNumber1',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(190, 150),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: (clickCount < 10)
+                        ? () {
+                            setState(() {
+                              //For generating random number using Random().nextInt()
+                              randomNumber1 = Random().nextInt(100);
+                              // Increment the click count
+                              clickCount++;
+                              rand(); // Calculate and display the result
+                            });
+                          }
+                        : null,
+                    child: Text(
+                      'First num is $randomNumber1',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(190, 150),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
                     ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: (clickCount < 10)
-                      ? () {
-                          setState(() {
-                            randomNumber2 = Random().nextInt(100);
-                            clickCount++;
-                            rand(); // Calculate and display the result
-                          });
-                        }
-                      : null,
-                  child: Text(
-                    ' Second num is $randomNumber2',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(150, 150),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ElevatedButton(
+                    onPressed: (clickCount < 10)
+                        ? () {
+                            setState(() {
+                              randomNumber2 = Random().nextInt(100);
+                              clickCount++;
+                              rand(); // Calculate and display the result
+                            });
+                          }
+                        : null,
+                    child: Text(
+                      ' Second num is $randomNumber2',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 150),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(height: 80),
             Text(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:secondapp/app/routes/app_route.dart';
+import 'package:secondapp/theme/themedata.dart';
 
 
 class App extends StatelessWidget {
@@ -10,7 +11,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Course',
-      initialRoute: AppRoute.satckviewRoute,
+      theme: getApplicationTheme(),
+      initialRoute: AppRoute.calculatorRoute,
       routes: AppRoute.getApplicationRoute(),
     );
   }
